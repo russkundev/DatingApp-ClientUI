@@ -9,7 +9,7 @@ import { User } from 'src/app/models/user.model';
 })
 export class AccountService {
   private readonly baseUrl: string = 'https://localhost:5001/api/';
-  private currentUserSource = new BehaviorSubject<User | null>(null);
+  private currentUserSource = new ReplaySubject<User>(1);
   currentUser$ = this.currentUserSource.asObservable();
 
   constructor(private http: HttpClient) { }
@@ -40,12 +40,12 @@ export class AccountService {
     );
   }
 
-  setCurrentUser(user: User | null) {
+  setCurrentUser(user: User) {
     this.currentUserSource.next(user);
   }
 
   logout() {
     localStorage.removeItem('user');
-    this.currentUserSource.next(null);
+    this.currentUserSource.next(undefined);
   }
 }
