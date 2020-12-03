@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <form *ngIf="(accountService.currentUser$ | async) === null" #loginForm="ngForm" class="form-inline mt-2 mt-md-0" 
+        <form *ngIf="(accountService.currentUser$ | async) === undefined" #loginForm="ngForm" class="form-inline mt-2 mt-md-0" 
             (ngSubmit)="onLogin()"
             autocomplete="off">
             <input 
