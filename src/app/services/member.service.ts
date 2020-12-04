@@ -15,7 +15,11 @@ export class MemberService {
     return this.http.get<Member[]>(this.baseUrl + 'users');
   }
 
-  getMember(username: string) {
+  getMember(username: string | undefined) {
     return this.http.get<Member>(this.baseUrl + 'users/' + username);
+  }
+
+  updateMember(member: Member) {
+    return this.http.put<Member>(this.baseUrl + 'users', member);
   }
 }

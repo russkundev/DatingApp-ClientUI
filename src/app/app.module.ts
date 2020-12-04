@@ -19,6 +19,7 @@ import { NotFoundComponent } from './components/errors/not-found/not-found.compo
 import { ServerErrorComponent } from './components/errors/server-error/server-error.component';
 import { MemberCardComponent } from './components/members/member-card/member-card.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { MemberEditComponent } from './components/members/member-edit/member-edit.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     MessagesComponent,
     NotFoundComponent,
     ServerErrorComponent,
-    MemberCardComponent
+    MemberCardComponent,
+    MemberEditComponent
   ],
   imports: [
     BrowserModule,
