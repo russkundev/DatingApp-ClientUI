@@ -17,7 +17,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     private router: Router,
     private toastr: ToastrService) {}
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       catchError(error => {
         switch (error.status) {
